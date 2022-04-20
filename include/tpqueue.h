@@ -25,12 +25,6 @@ class TPQueue {
          begin += 1;
          return prikol;
      }
-     void chekArr() {
-         for (int i = 0; i < size; i++) {
-             std::cout << arr[i] << ' ';
-         }
-         std::cout << std::endl;
-     }
      T gey() const {
          return arr[begin];
      }
@@ -40,7 +34,6 @@ class TPQueue {
      bool isFull() const {
          return count == size;
      }
-     
  private:
      T arr[100];
      int begin, end, count;
