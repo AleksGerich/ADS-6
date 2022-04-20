@@ -4,6 +4,9 @@
 
 template<typename T, int size>
 class TPQueue {
+ private:
+     T arr[100];
+     int begin, end, count;
  public:
      TPQueue() : begin(0), end(0), count(0) { }
      void push(const T item) {
@@ -36,9 +39,6 @@ class TPQueue {
      bool isFull() const {
          return count == size;
      }
-  private:
-     T arr[100];
-     int begin, end, count;
 };
 
 struct SYM {
