@@ -13,7 +13,7 @@ class TPQueue {
      void push(const T item) {
          bool flag = false;
          for (int i = end; i >= begin; i--) {
-             if (item.prior > arr[(i - 1) % size].prior && i > begin) {
+             if (item.prior >= arr[(i - 1) % size].prior && i > begin) {
                  arr[i % size] = arr[(i - 1) % size];
              } else {
                  arr[i % size] = item;
