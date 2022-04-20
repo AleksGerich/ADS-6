@@ -7,6 +7,7 @@ class TPQueue {
  public:
      TPQueue() : begin(0), end(0), count(0) { }
      void push(const T item) {
+         bool flag = false;
          for (int i = end; i >= begin; i--) {
              if (item.prior > arr[(i - 1) % size].prior && i > begin) {
                  arr[i % size] = arr[(i - 1) % size];
@@ -25,6 +26,12 @@ class TPQueue {
          T prikol = arr[begin % size];
          begin += 1;
          return prikol;
+     }
+     void chekArr() {
+         for (int i = 0; i < size; i++) {
+             std::cout << arr[i] << ' ';
+         }
+         std::cout << std::endl;
      }
      T gey() const {
          return arr[begin];
