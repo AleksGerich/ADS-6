@@ -4,7 +4,45 @@
 
 template<typename T, int size>
 class TPQueue {
-  // реализация шаблона очереди с приоритетом на кольцевом буфере
+ public:
+     TPQueue() : begin(0), end(0), count(0) { }
+     void push(const T item) {
+         for (int i = begin; i < end; i++) {
+             if (item.prior > arr[(i + 1) % size].prior && i > begin) {
+                 arr[i % size] = arr[(i + 1) % size];
+             } else {
+                 arr[i % size] = item;
+             }
+         }
+         end++;
+         count += 1;
+     }
+     int checkSize() {
+         return size;
+     }
+     T pop() {
+         T prikol = arr[begin % size];
+         begin += 1;
+         return prikol;
+     }
+     void chekArr() {
+         for (int i = 0; i < size; i++) {
+             std::cout << arr[i] << ' ';
+         }
+         std::cout << std::endl;
+     }
+     T gey() const {
+         return arr[begin];
+     }
+     bool isEmpty() const {
+         return count == 0;
+     }
+     bool isFull() const {
+         return count == size;
+     }
+ private:
+     T arr[size];
+     int begin, end, count;
 };
 
 struct SYM {
