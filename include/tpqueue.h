@@ -27,12 +27,6 @@ class TPQueue {
          begin += 1;
          return prikol;
      }
-     void chekArr() {
-         for (int i = 0; i < size; i++) {
-             std::cout << arr[i] << ' ';
-         }
-         std::cout << std::endl;
-     }
      T gey() const {
          return arr[begin];
      }
