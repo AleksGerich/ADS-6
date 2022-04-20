@@ -40,8 +40,9 @@ class TPQueue {
      bool isFull() const {
          return count == size;
      }
+     
  private:
-     T arr[size];
+     T arr[100];
      int begin, end, count;
 };
 
