@@ -6,10 +6,9 @@ template<typename T, int size>
 class TPQueue {
  private:
      T arr[100];
-     int begin, end, count;
+     int begin = 0, end = 0;
 
  public:
-     TPQueue() : begin(0), end(0), count(0) { }
      void push(const T item) {
          for (int i = end; i >= begin; i--) {
              if (item.prior > arr[(i - 1) % size].prior && i > begin) {
@@ -20,22 +19,9 @@ class TPQueue {
              }
          }
          end++;
-         count += 1;
-     }
-     int checkSize() {
-         return size;
      }
      T pop() {
          return arr[(begin++) % size];
-     }
-     T gey() const {
-         return arr[begin];
-     }
-     bool isEmpty() const {
-         return count == 0;
-     }
-     bool isFull() const {
-         return count == size;
      }
 };
 
