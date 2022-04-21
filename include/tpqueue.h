@@ -26,9 +26,7 @@ class TPQueue {
          return size;
      }
      T pop() {
-         T prikol = arr[begin % size];
-         begin += 1;
-         return prikol;
+         return arr[(begin++) % size];
      }
      T gey() const {
          return arr[begin];
