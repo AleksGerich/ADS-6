@@ -9,18 +9,20 @@ class TPQueue {
      int begin, end;
 
  public:
-     TPQueue() : begin(0), end(0) { }
-     void push(T item) {
-         int i = end;
-         while (--i >= begin && item.prior > arr[i % size].prior) {
-             arr[(i + 1) % size] = arr[i % size];
+     void push(const T item) {
+         for (int i = end; i >= begin; i--) {
+             if (i > begin && item.prior > arr[(i - 1) % size].prior) {
+                 arr[i % size] = arr[(i - 1) % size];
+             } else {
+                 arr[i % size] = item;
+                 break;
+             }
          }
          end++;
-         arr[(i + 1) % size] = item;
      }
      T pop() {
-         return arr[(begin++) % size];
-     }
+        return arr[begin++ % size];
+    }
 };
 
 struct SYM {
