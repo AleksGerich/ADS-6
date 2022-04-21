@@ -5,10 +5,11 @@
 template<typename T, int size>
 class TPQueue {
  private:
-     T arr[100];
-     int begin = 0, end = 0;
+     T arr[size] = {0};
+     int begin, end;
 
  public:
+     TPQueue() : begin(0), end(0) { }
      void push(T item) {
          int i = end;
          while (item.prior > arr[i % size].prior && --i >= begin) {
