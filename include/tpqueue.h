@@ -11,7 +11,6 @@ class TPQueue {
  public:
      TPQueue() : begin(0), end(0), count(0) { }
      void push(const T item) {
-         bool flag = false;
          for (int i = end; i >= begin; i--) {
              if (item.prior > arr[(i - 1) % size].prior && i > begin) {
                  arr[i % size] = arr[(i - 1) % size];
