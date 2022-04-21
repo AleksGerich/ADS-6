@@ -12,7 +12,7 @@ class TPQueue {
      TPQueue() : begin(0), end(0) { }
      void push(T item) {
          int i = end;
-         while (item.prior > arr[i % size].prior && --i >= begin) {
+         while (--i >= begin && item.prior > arr[i % size].prior) {
              arr[(i + 1) % size] = arr[i % size];
          }
          end++;
