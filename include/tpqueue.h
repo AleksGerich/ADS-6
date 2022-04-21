@@ -9,16 +9,13 @@ class TPQueue {
      int begin = 0, end = 0;
 
  public:
-     void push(const T item) {
-         for (int i = end; i >= begin; i--) {
-             if (item.prior > arr[(i - 1) % size].prior && i > begin) {
-                 arr[i % size] = arr[(i - 1) % size];
-             } else {
-                 arr[i % size] = item;
-                 break;
-             }
+     void push(T item) {
+         int i = end;
+         while (item.prior > arr[i % size].prior && --i >= begin) {
+             arr[(i + 1) % size] = arr[i % size];
          }
          end++;
+         arr[(i + 1) % size] = item;
      }
      T pop() {
          return arr[(begin++) % size];
